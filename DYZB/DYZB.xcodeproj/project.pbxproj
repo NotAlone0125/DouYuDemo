@@ -2670,6 +2670,7 @@
 		9F5F6CD71F6A548D0057C2AA /* 视频引导页@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5F62741F6A54890057C2AA /* 视频引导页@2x.png */; };
 		9F5F6CD81F6A548D0057C2AA /* 赞@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5F62751F6A54890057C2AA /* 赞@2x.png */; };
 		9F5F6CD91F6A548D0057C2AA /* 默认banner图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F5F62761F6A548A0057C2AA /* 默认banner图@2x.png */; };
+		9F5F6CE21F6A65750057C2AA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F6CE11F6A65750057C2AA /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -5338,6 +5339,7 @@
 		9F5F62741F6A54890057C2AA /* 视频引导页@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "视频引导页@2x.png"; sourceTree = "<group>"; };
 		9F5F62751F6A54890057C2AA /* 赞@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "赞@2x.png"; sourceTree = "<group>"; };
 		9F5F62761F6A548A0057C2AA /* 默认banner图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认banner图@2x.png"; sourceTree = "<group>"; };
+		9F5F6CE11F6A65750057C2AA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -8100,6 +8102,7 @@
 		9F5F6CDE1F6A61380057C2AA /* Mian */ = {
 			isa = PBXGroup;
 			children = (
+				9F5F6CE11F6A65750057C2AA /* MainViewController.swift */,
 			);
 			path = Mian;
 			sourceTree = "<group>";
@@ -10851,6 +10854,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F306AB71F66679C00E67CF6 /* AppDelegate.swift in Sources */,
+				9F5F6CE21F6A65750057C2AA /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
