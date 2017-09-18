@@ -17,7 +17,8 @@
 2.首页顶部滑动切换（也可用于其他页面，一同封装）
 >(1).封装PageTitleView<br>
 >>* 自定义View，并且自定义构造函数
->>* 添加子控件：1.UIScrollView
+>>* 添加子控件：1.UIScrollView；2.设置TitleLabel;3.设置底部line
 
 >(2).封装PageContentView<br>
+>>* 
 >(3).处理PageTitleView & PageContentView的逻辑
