@@ -8,7 +8,9 @@
 
 2.ios9后的新特性，storyboard可以分割管理，选中要分离出来的storyBoard中的某个控制器：**Editor -> Refactor to storyBoard** ,生成新的包含该控制器的storyBoard；<br>
 
-如果要适配ios8，为每个storyBoard生成一个控制器文件并绑定，并在TabbarController中addChildrenViewController。
+如果要适配ios8，为每个storyBoard生成一个控制器文件并绑定，并在TabbarController中addChildrenViewController。<br>
+
+3.swif中weak只能修饰可选类型。
 
 
 ###一些实现思路
@@ -20,5 +22,8 @@
 >>* 添加子控件：1.UIScrollView；2.设置TitleLabel;3.设置底部line
 
 >(2).封装PageContentView<br>
->>* 
+>>* 自定义View，并且自定义构造函数
+>>* 添加子控件：1.UICollectionView；2.设置UICollectionView的内容
+
 >(3).处理PageTitleView & PageContentView的逻辑
+>>* pagetitleView中发生点击:1. PageTitleView逻辑处理；2. PageContentView滚动到相应位置。

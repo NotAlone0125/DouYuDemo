@@ -15,13 +15,13 @@ class PageContentView: UIView {
 
     //MARK:定义属性
     fileprivate var childrenControls:[UIViewController]
-    fileprivate var parentControl:UIViewController
+    fileprivate weak var parentControl:UIViewController?//这里的parentControl就是指的HoumeViewController，所以形成了循环引用，要使用weak修饰符。
     
     //MARK:懒加载属性
-    fileprivate lazy var collection:UICollectionView = {
+    fileprivate lazy var collection:UICollectionView = {[weak self] in//闭包中使用self也会产生循环引用
        
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = self.bounds.size
+        layout.itemSize = (self?.bounds.size)!
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
@@ -39,7 +39,7 @@ class PageContentView: UIView {
     
     
     //MARK:自定义构造函数
-    init(frame: CGRect,childrenControls:[UIViewController],parentControl:UIViewController) {
+    init(frame: CGRect,childrenControls:[UIViewController],parentControl:UIViewController?) {
         
         self.childrenControls = childrenControls
         self.parentControl = parentControl
@@ -66,7 +66,7 @@ extension PageContentView{
     fileprivate func setupUI(){
         //1.添加子视图控制器
         for vc in childrenControls {
-            parentControl.addChildViewController(vc)
+            parentControl?.addChildViewController(vc)
         }
         
         //2.添加放置控制器View的collectionView
@@ -95,5 +95,13 @@ extension PageContentView:UICollectionViewDataSource,UICollectionViewDelegate{
         cell.contentView.addSubview(childVC.view)
         
         return cell
+    }
+}
+
+//MARK:对外暴露的方法
+extension PageContentView{
+    func setCunrrentIndex(currentIndex:Int) {
+        let offsetX = CGFloat(currentIndex) * collection.frame.width
+        collection.setContentOffset(CGPoint.init(x: offsetX, y: 0) , animated: false)
     }
 }
