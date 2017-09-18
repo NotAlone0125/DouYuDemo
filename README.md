@@ -29,4 +29,4 @@
 
 >(3).处理PageTitleView & PageContentView的逻辑
 >>* pagetitleView中发生点击:1. PageTitleView逻辑处理；2. PageContentView滚动到相应位置。
->>* pageContentView的滚动:1.
+>>* pageContentView的滚动
