@@ -22,6 +22,8 @@ class PageContentView: UIView {
     fileprivate weak var parentControl:UIViewController?//这里的parentControl就是指的HoumeViewController，所以形成了循环引用，要使用weak修饰符。
     fileprivate var startOffsetX:CGFloat = 0
     weak var delegate:PageContentViewDelegate?
+    var isForbidScrollDelegate:Bool = false//避免点击title时候，多余执行scrollViewDelegate
+    
     
     //MARK:懒加载属性
     fileprivate lazy var collection:UICollectionView = {[weak self] in//闭包中使用self也会产生循环引用
@@ -108,10 +110,18 @@ extension PageContentView:UICollectionViewDataSource{
 extension PageContentView:UICollectionViewDelegate{
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        
+        isForbidScrollDelegate = false
+        
         startOffsetX = scrollView.contentOffset.x
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if isForbidScrollDelegate {//如果是点击的title，不执行代理方法，节省资源
+            return
+        }
+        
         //1.定义需要获取的数据
         var progress:CGFloat = 0
         var targetIndex:Int = 0
@@ -162,6 +172,9 @@ extension PageContentView:UICollectionViewDelegate{
 //MARK:对外暴露的方法
 extension PageContentView{
     func setCunrrentIndex(currentIndex:Int) {
+        
+        isForbidScrollDelegate = true
+        
         let offsetX = CGFloat(currentIndex) * collection.frame.width
         collection.setContentOffset(CGPoint.init(x: offsetX, y: 0) , animated: false)
     }
