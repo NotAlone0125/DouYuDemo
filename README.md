@@ -12,6 +12,8 @@
 
 3.swif中weak只能修饰可选类型。
 
+4.`extern double floor(double);`系统函数，表示取该数的整数部分
+
 
 ###一些实现思路
 1.首页导航栏的UIBarButtonItem，扩展extension。<br>
@@ -27,3 +29,4 @@
 
 >(3).处理PageTitleView & PageContentView的逻辑
 >>* pagetitleView中发生点击:1. PageTitleView逻辑处理；2. PageContentView滚动到相应位置。
+>>* pageContentView的滚动:1.
