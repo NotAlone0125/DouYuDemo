@@ -14,6 +14,8 @@
 
 4.`extern double floor(double);`系统函数，表示取该数的整数部分
 
+5.`UICollectionViewDelegateFlowLayout`继承自`UICollectionViewDelegate`
+
 
 ###一些实现思路
 1.首页导航栏的UIBarButtonItem，扩展extension。<br>
