@@ -21,6 +21,7 @@ private let kHeaderViewID = "kHeaderView"
 class RecommendViewController: UIViewController {
 
     //MARK:懒加载属性
+    fileprivate lazy var recommendVM:RecommendViewModel = RecommendViewModel()
     fileprivate lazy var collectionView:UICollectionView = {[weak self] in
        
         //1.创建布局
@@ -36,7 +37,7 @@ class RecommendViewController: UIViewController {
         let collectionView = UICollectionView.init(frame: (self?.view.bounds)!, collectionViewLayout: layOut)
         collectionView.backgroundColor = UIColor.white
         collectionView.dataSource = self!
-        collectionView.delegate = self! as? UICollectionViewDelegate
+        collectionView.delegate = self!
         
         //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kNormalCellID)
         //collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: kHeaderViewID)
@@ -57,7 +58,8 @@ class RecommendViewController: UIViewController {
         //设置UI
         setupUI()
 
-        
+        //发送网络请求
+        loadData()
     }
 
 }
@@ -72,6 +74,15 @@ extension RecommendViewController{
         
     }
     
+}
+
+//MARK:请求数据
+extension RecommendViewController{
+    fileprivate func loadData(){
+        
+        recommendVM.loadData()
+        
+    }
 }
 
 //MARK:DataSource、Delegate

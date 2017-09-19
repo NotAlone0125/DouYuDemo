@@ -16,7 +16,7 @@
 
 5.`UICollectionViewDelegateFlowLayout`继承自`UICollectionViewDelegate`
 
-6.OC中使用**AFNetworking**，作者针对OC开发了**Alamofire**用来进行网络请求。
+6.OC中使用**AFNetworking**，作者针对OC开发了**Alamofire**用来进行网络请求。一般对使用的第三方库需要进行自己的封装，避免过于依赖框架。
 
 
 ###一些实现思路
@@ -34,3 +34,47 @@
 >(3).处理PageTitleView & PageContentView的逻辑
 >>* pagetitleView中发生点击:1. PageTitleView逻辑处理；2. PageContentView滚动到相应位置。
 >>* pageContentView的滚动
+
+
+
+###MVVM设计模式
+
+####MVVM介绍
+* 前面环境配置完成后，我们要请求首页数据
+* 数据请求在哪里发送了<br>
+
+####MVC模式
+* Model-View-Controller,苹果官方推荐的权威范式。
+* 那么把网络代码放在哪里<br>
+
+        1.我们知道，因为控制器是一个大管家，那么不知道如何安放
+        的代码就放在控制器中。
+        2.是的，传统的MVC方式我们经常这么做。
+        
+* 该做法的弊端在哪里<br>
+
+        1.由于大量的代码被放进view controller,导致控制器变    
+        得相当臃肿。
+        2.在ios开发中有的view controller里延绵成千上万的代
+        码并不是前所未见的。
+        3.厚重的view controller很难维护；包含几十个属性，使
+        他们的状态难以管理；遵循许多协议。导致协议的响应代码和
+        controller的逻辑代码混淆在一起。
+        
+* 那么究竟应该放在哪里<br>
+
+        显然MVC的三大组件没有适合放这些代码的地方。
+        
+![Alt text](http://ow7i1tw26.bkt.clouddn.com/MVC.png)
+
+####MVVM模式
+* MVVM来自微软，并引入新的组件ViewModel<br>
+           
+        1.view model是一个放置用户输入验证逻辑，视图显示逻 
+        辑，发起网络请求和其他各式各样的代码的极好的地方。
+        2.由于展示逻辑放在了view model中（比如网络请求、请求
+        后的数据解析等等），视图控制器本身就不会再臃肿。
+
+* 因此，该项目中的请求数据，统一交给viewModel管理，每一个控制器对应        
+        
+![Alt text](http://ow7i1tw26.bkt.clouddn.com/MVVM.png)
