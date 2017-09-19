@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 
 protocol PageContentViewDelegate:class {
+    
     func pageContentView(progress:CGFloat,sourceIndex:Int,targetIndex:Int)
 }
 
@@ -17,6 +18,7 @@ private let collectionCellID = "cell"
 
 class PageContentView: UIView {
 
+    
     //MARK:定义属性
     fileprivate var childrenControls:[UIViewController]
     fileprivate weak var parentControl:UIViewController?//这里的parentControl就是指的HoumeViewController，所以形成了循环引用，要使用weak修饰符。
@@ -72,6 +74,7 @@ class PageContentView: UIView {
 extension PageContentView{
     
     fileprivate func setupUI(){
+     
         //1.添加子视图控制器
         for vc in childrenControls {
             parentControl?.addChildViewController(vc)
