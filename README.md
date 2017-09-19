@@ -16,6 +16,8 @@
 
 5.`UICollectionViewDelegateFlowLayout`继承自`UICollectionViewDelegate`
 
+6.OC中使用**AFNetworking**，作者针对OC开发了**Alamofire**用来进行网络请求。
+
 
 ###一些实现思路
 1.首页导航栏的UIBarButtonItem，扩展extension。<br>
