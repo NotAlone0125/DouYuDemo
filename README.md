@@ -1,7 +1,7 @@
 # DouYuDemo
 模仿斗鱼TV IOSAPP
 
-###一些知识点：<br>
+### 一些知识点：
 1.修改Tabbar的tintColor（[appearance方法详解]）
 [appearance方法详解]:(http://www.jianshu.com/p/90d826315474)
 `UITabBar.appearance().tintColor = UIColor.orange`<br>
@@ -19,7 +19,7 @@
 6.OC中使用**AFNetworking**，作者针对OC开发了**Alamofire**用来进行网络请求。一般对使用的第三方库需要进行自己的封装，避免过于依赖框架。
 
 
-###一些实现思路
+### 一些实现思路 
 1.首页导航栏的UIBarButtonItem，扩展extension。<br>
 
 2.首页顶部滑动切换（也可用于其他页面，一同封装）
@@ -37,13 +37,13 @@
 
 
 
-###MVVM设计模式
+### MVVM设计模式
 
-####MVVM介绍
+#### MVVM介绍
 * 前面环境配置完成后，我们要请求首页数据
 * 数据请求在哪里发送了<br>
 
-####MVC模式
+#### MVC模式
 * Model-View-Controller,苹果官方推荐的权威范式。
 * 那么把网络代码放在哪里<br>
 
@@ -67,7 +67,7 @@
         
 ![Alt text](http://ow7i1tw26.bkt.clouddn.com/MVC.png)
 
-####MVVM模式
+#### MVVM模式
 * MVVM来自微软，并引入新的组件ViewModel<br>
            
         1.view model是一个放置用户输入验证逻辑，视图显示逻 
