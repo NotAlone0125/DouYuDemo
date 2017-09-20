@@ -131,8 +131,14 @@ extension PageTitleView{
 //MARK:titleLabel事件监听
 extension PageTitleView{
     @objc func titleLabelTapGes(tapGes:UITapGestureRecognizer){
+        
         //1.获取当前label
         guard let currentLabel = tapGes.view as? UILabel else {return}
+        
+        //重复点击，直接return
+        if currentLabel.tag == currentLabelIndex{
+            return
+        }
         
         //2.获取之前的label
         let oldLabel:UILabel = titleLabels[currentLabelIndex]

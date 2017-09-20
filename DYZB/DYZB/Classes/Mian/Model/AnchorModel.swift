@@ -22,6 +22,7 @@ class AnchorModel: NSObject {
     var nickname:String = ""
     //在线人数
     var online:Int = 0
+    var online_num:Int = 0//颜值等部分字段名称不同
     //锁在城市
     var anchor_city:String = ""
     

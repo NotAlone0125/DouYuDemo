@@ -18,6 +18,8 @@
 
 6.OC中使用**AFNetworking**，作者针对OC开发了**Alamofire**用来进行网络请求。一般对使用的第三方库需要进行自己的封装，避免过于依赖框架。
 
+7.**Kingfisher**,Swift用于加载网络图片的框架，类似OC中的SDWebImage。
+
 
 ### 一些实现思路 
 1.首页导航栏的UIBarButtonItem，扩展extension。<br>
