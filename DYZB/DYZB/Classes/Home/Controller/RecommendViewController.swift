@@ -80,8 +80,16 @@ extension RecommendViewController{
 extension RecommendViewController{
     fileprivate func loadData(){
         
-        recommendVM.loadData()
-        
+        recommendVM.loadData {
+            for smallGruop in self.recommendVM.anchorGroups{
+                for anchors in smallGruop.anchors{
+                    print(anchors.nickname)
+                }
+                print("\(smallGruop.cateModel.cate2_name)+++++++++")
+            }
+            
+            self.collectionView.reloadData()
+        }
     }
 }
 
@@ -89,15 +97,14 @@ extension RecommendViewController{
 extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 12
+        return recommendVM.anchorGroups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0{
-            return 8
-        }else{
-            return 4
-        }
+        
+        let group = recommendVM.anchorGroups[section]
+        
+        return group.anchors.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -118,8 +125,13 @@ extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
         //1.获取headerView
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kHeaderViewID, for: indexPath) as! CollectionHeaderView
+        
+        //2.取出模型
+        headerView.group = recommendVM.anchorGroups[indexPath.section]
+        
     
         return headerView
     }

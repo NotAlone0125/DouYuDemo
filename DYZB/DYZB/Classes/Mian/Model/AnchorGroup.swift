@@ -22,11 +22,38 @@ class AnchorGroup: NSObject {
         }
     }
     //组显示的名称
-    var tag_name = ""
+    var tag_name:String = ""
     //组显示的图标
-    var icon_url:String = "home_header_normal"
+    var small_icon_url:String = "home_header_normal"
     //定义主播的模型对象数组
     lazy var anchors:[AnchorModel] = [AnchorModel]()
+    
+    //MARK:颜值等区别定义的属性
+    //颜值等数据还需要cateInfo模型
+    var cateInfo:[String : NSObject]?{
+        didSet{
+            guard let cateInfo = cateInfo else {
+                return
+            }
+            cateModel = AnchorCateInfo.init(dict: cateInfo)
+        }
+    }
+    var list:[[String : NSObject]]?{//颜值等数据的字段不是room_list而是list
+        didSet{
+            guard let list = list else {
+                return
+            }
+            for dict in list{
+                anchors.append(AnchorModel.init(dict: dict))
+            }
+        }
+    }
+    //定义组的类别信息模型
+    lazy var cateModel:AnchorCateInfo = AnchorCateInfo()
+    
+    override init() {
+        
+    }
     
     init(dict:[String:NSObject]){
         super.init()
