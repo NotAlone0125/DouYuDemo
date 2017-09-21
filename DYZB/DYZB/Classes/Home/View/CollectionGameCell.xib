@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CollectionGameCell" customModule="DYZB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c0u-YQ-VMq">
+                        <rect key="frame" x="17.5" y="15" width="45.5" height="45.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="c0u-YQ-VMq" secondAttribute="height" multiplier="1:1" id="jAi-57-7Aa"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="22.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="绝地求生" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvS-xm-jDs">
+                        <rect key="frame" x="0.0" y="65.5" width="80" height="14.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="YPC-lq-uWJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="jvS-xm-jDs" secondAttribute="trailing" id="KmM-fF-eNg"/>
+                <constraint firstItem="jvS-xm-jDs" firstAttribute="top" secondItem="c0u-YQ-VMq" secondAttribute="bottom" constant="5" id="NQX-oc-3Vq"/>
+                <constraint firstAttribute="bottom" secondItem="jvS-xm-jDs" secondAttribute="bottom" constant="10" id="TDt-rY-IEG"/>
+                <constraint firstItem="c0u-YQ-VMq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="TTa-FH-OIO"/>
+                <constraint firstItem="jvS-xm-jDs" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="dQv-x3-hje"/>
+                <constraint firstItem="c0u-YQ-VMq" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="kQu-Hj-1Uh"/>
+                <constraint firstItem="jvS-xm-jDs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oZO-Xk-ik7"/>
+            </constraints>
+            <connections>
+                <outlet property="iconImageVIew" destination="c0u-YQ-VMq" id="sRl-fp-vAH"/>
+                <outlet property="titleLabel" destination="jvS-xm-jDs" id="6XW-Jl-hfN"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

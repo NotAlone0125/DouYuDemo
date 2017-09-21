@@ -14,7 +14,8 @@ private let kNormalItemH = kItemW * 3 / 4
 private let kPrettyItemH = kItemW * 4 / 3
 private let kHearderViewH:CGFloat = 50
 
-private let kCycleViewH = kScreenW * 3 / 8
+private let kCycleViewH:CGFloat = kScreenW * 3 / 8
+private let kGameViewH:CGFloat = 90
 
 private let kNormalCellID = "kNormalCell"
 private let kPrettyCellID = "kPrettyCell"
@@ -57,9 +58,17 @@ class RecommendViewController: UIViewController {
     fileprivate lazy var cycleView:RecommendCycleView = {
         let cycleView = RecommendCycleView.recommendCycleView()
         
-        cycleView.frame = CGRect.init(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        cycleView.frame = CGRect.init(x: 0, y: -kCycleViewH - kGameViewH, width: kScreenW, height: kCycleViewH)
         
         return cycleView
+    }()
+    
+    fileprivate lazy var gameView:RecommendGameView = {
+        let gameView = RecommendGameView.recommendGameView()
+        
+        gameView.frame = CGRect.init(x: 0, y: -kGameViewH, width: kScreenW, height: kGameViewH)
+        
+        return gameView
     }()
     
     override func viewDidLoad() {
@@ -71,7 +80,6 @@ class RecommendViewController: UIViewController {
         //发送网络请求
         loadData()
     }
-
 }
 
 
@@ -84,10 +92,11 @@ extension RecommendViewController{
         
         //将cycleView添加到collectionView
         collectionView.addSubview(cycleView)
-        
         //设置collectionView的内边距来显示负坐标的cycleView
-        collectionView.contentInset = UIEdgeInsets.init(top: kCycleViewH, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets.init(top: kCycleViewH + kGameViewH, left: 0, bottom: 0, right: 0)
         
+        //添加gameView
+        collectionView.addSubview(gameView)
     }
     
 }
@@ -99,6 +108,7 @@ extension RecommendViewController{
         //请求推荐数据
         recommendVM.loadData {
             self.collectionView.reloadData()
+            self.gameView.groups = self.recommendVM.anchorGroups
         }
         
         //请求轮播数据
