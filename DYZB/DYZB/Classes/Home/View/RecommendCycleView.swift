@@ -13,6 +13,7 @@ private let kCollectionCellID = "collectionCellID"
 
 class RecommendCycleView: UIView {
     
+    //定义属性
     var cycleModels:[CycleModel]?{
         didSet{
             guard let cycleModels = cycleModels else {
@@ -24,8 +25,8 @@ class RecommendCycleView: UIView {
         }
     }
     
+    //Xib属性
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var pageControl: UIPageControl!
     
     override func awakeFromNib() {
@@ -35,13 +36,14 @@ class RecommendCycleView: UIView {
         autoresizingMask = UIViewAutoresizing.init(rawValue: 0)
         
         //注册cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: kCollectionCellID)
+        collectionView.register(UINib.init(nibName: "CollectionCycleCell", bundle: nil), forCellWithReuseIdentifier: kCollectionCellID)
     }
     
     //获取更精确的collectionView的bounds
     override func layoutSubviews() {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = collectionView.bounds.size
+        
     }
 }
 
@@ -54,6 +56,7 @@ extension RecommendCycleView{
     }
 }
 
+//MARK:Datasource
 extension RecommendCycleView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cycleModels?.count ?? 0
@@ -61,11 +64,23 @@ extension RecommendCycleView:UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionCellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kCollectionCellID, for: indexPath) as! CollectionCycleCell
         
-        cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.red : UIColor.yellow
+        let cycleModel = cycleModels![indexPath.item]
+        
+        cell.cycleModel = cycleModel
         
         return cell
         
+    }
+}
+
+//MARK:Delegate
+extension RecommendCycleView:UICollectionViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //获取滚动的偏移量
+        let offsetX = scrollView.contentOffset.x + scrollView.bounds.width / 2
+        
+        pageControl.currentPage = Int(offsetX / scrollView.bounds.width)
     }
 }
