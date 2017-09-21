@@ -14,6 +14,8 @@ private let kNormalItemH = kItemW * 3 / 4
 private let kPrettyItemH = kItemW * 4 / 3
 private let kHearderViewH:CGFloat = 50
 
+private let kCycleViewH = kScreenW * 3 / 8
+
 private let kNormalCellID = "kNormalCell"
 private let kPrettyCellID = "kPrettyCell"
 private let kHeaderViewID = "kHeaderView"
@@ -52,6 +54,14 @@ class RecommendViewController: UIViewController {
         return collectionView
     }()
     
+    fileprivate lazy var cycleView:RecommendCycleView = {
+        let cycleView = RecommendCycleView.recommendCycleView()
+        
+        cycleView.frame = CGRect.init(x: 0, y: -kCycleViewH, width: kScreenW, height: kCycleViewH)
+        
+        return cycleView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,8 +79,14 @@ class RecommendViewController: UIViewController {
 extension RecommendViewController{
     
     fileprivate func setupUI(){
-        
+        //添加collectionView
         self.view.addSubview(collectionView)
+        
+        //将cycleView添加到collectionView
+        collectionView.addSubview(cycleView)
+        
+        //设置collectionView的内边距来显示负坐标的cycleView
+        collectionView.contentInset = UIEdgeInsets.init(top: kCycleViewH, left: 0, bottom: 0, right: 0)
         
     }
     
@@ -123,7 +139,7 @@ extension RecommendViewController:UICollectionViewDataSource,UICollectionViewDel
         }
         
         cell.anchor = anchor
-        return cell
+        return cell!
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

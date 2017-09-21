@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C757C9C8CBB67C62C743EC5 /* Pods_DYZB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473F0EBB6161EC837C13D3EC /* Pods_DYZB.framework */; };
+		9F2F16011F735770007A9AB5 /* RecommendCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2F16001F735770007A9AB5 /* RecommendCycleView.swift */; };
+		9F2F16031F7357A0007A9AB5 /* RecommendCycleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F2F16021F7357A0007A9AB5 /* RecommendCycleView.xib */; };
 		9F306AB71F66679C00E67CF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F306AB61F66679C00E67CF6 /* AppDelegate.swift */; };
 		9F306ABE1F66679C00E67CF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F306ABD1F66679C00E67CF6 /* Assets.xcassets */; };
 		9F306AC11F66679C00E67CF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F306ABF1F66679C00E67CF6 /* LaunchScreen.storyboard */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		408922CEB79C3DD7C908D48F /* Pods-DYZB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZB.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYZB/Pods-DYZB.release.xcconfig"; sourceTree = "<group>"; };
 		473F0EBB6161EC837C13D3EC /* Pods_DYZB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DYZB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F2F16001F735770007A9AB5 /* RecommendCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCycleView.swift; sourceTree = "<group>"; };
+		9F2F16021F7357A0007A9AB5 /* RecommendCycleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCycleView.xib; sourceTree = "<group>"; };
 		9F306AB31F66679C00E67CF6 /* DYZB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYZB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F306AB61F66679C00E67CF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F306ABD1F66679C00E67CF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 			children = (
 				9FA58D6C1F70ACD600442D8A /* CollectionHeaderView.swift */,
 				9FA58D6D1F70ACD600442D8A /* CollectionHeaderView.xib */,
+				9F2F16001F735770007A9AB5 /* RecommendCycleView.swift */,
+				9F2F16021F7357A0007A9AB5 /* RecommendCycleView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 				9FA58D771F70E04200442D8A /* CollectionViewPrettyCell.xib in Resources */,
 				9F5F6CE81F6A744B0057C2AA /* Live.storyboard in Resources */,
 				9FA58D731F70BE7A00442D8A /* CollectionViewNormalCell.xib in Resources */,
+				9F2F16031F7357A0007A9AB5 /* RecommendCycleView.xib in Resources */,
 				9F5F6CE61F6A71970057C2AA /* Home.storyboard in Resources */,
 				9F5F6CEC1F6A74870057C2AA /* Profile.storyboard in Resources */,
 				9F5F6CEA1F6A74780057C2AA /* Follow.storyboard in Resources */,
@@ -427,6 +434,7 @@
 				9F5F6CF61F6A83A40057C2AA /* MainViewController.swift in Sources */,
 				9F5F6CFF1F6B78C60057C2AA /* Common.swift in Sources */,
 				9F48BC021F7106310048CA2A /* NetworkTools.swift in Sources */,
+				9F2F16011F735770007A9AB5 /* RecommendCycleView.swift in Sources */,
 				9F5F6CF81F6A83DA0057C2AA /* HomeViewController.swift in Sources */,
 				9F35BC6C1F71164C0064E62B /* RecommendViewModel.swift in Sources */,
 				9F35BC721F7129D70064E62B /* AnchorModel.swift in Sources */,

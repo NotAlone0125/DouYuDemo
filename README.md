@@ -20,6 +20,8 @@
 
 7.**Kingfisher**,Swift用于加载网络图片的框架，类似OC中的SDWebImage。
 
+8.使用XIB布局时，在`awakeFromNib()`方法得到的控件尺寸是不准确的，是XIB中的大小；这时可以重写`layoutSubviews()`,从该方法可以获得
+
 
 ### 一些实现思路 
 1.首页导航栏的UIBarButtonItem，扩展extension。<br>
@@ -37,6 +39,10 @@
 >>* pagetitleView中发生点击:1. PageTitleView逻辑处理；2. PageContentView滚动到相应位置。
 >>* pageContentView的滚动
 
+3.无限轮播
+>(1).可以使用第三方框架。<br>
+>(2).自定义UIScrollView。需要考虑循环利用的问题。<br>
+>(3)UICollectionView(推荐)
 
 
 ### MVVM设计模式
