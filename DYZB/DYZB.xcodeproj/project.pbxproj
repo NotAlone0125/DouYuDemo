@@ -39,6 +39,7 @@
 		9FA58D731F70BE7A00442D8A /* CollectionViewNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA58D711F70BE7A00442D8A /* CollectionViewNormalCell.xib */; };
 		9FA58D761F70E04200442D8A /* CollectionViewPrettyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA58D741F70E04200442D8A /* CollectionViewPrettyCell.swift */; };
 		9FA58D771F70E04200442D8A /* CollectionViewPrettyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FA58D751F70E04200442D8A /* CollectionViewPrettyCell.xib */; };
+		9FF930611F738F9F00E9F948 /* CycleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF930601F738F9F00E9F948 /* CycleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		9FA58D711F70BE7A00442D8A /* CollectionViewNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewNormalCell.xib; sourceTree = "<group>"; };
 		9FA58D741F70E04200442D8A /* CollectionViewPrettyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPrettyCell.swift; sourceTree = "<group>"; };
 		9FA58D751F70E04200442D8A /* CollectionViewPrettyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewPrettyCell.xib; sourceTree = "<group>"; };
+		9FF930601F738F9F00E9F948 /* CycleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleModel.swift; sourceTree = "<group>"; };
 		A4FB30841B99CEA54C6A589F /* Pods-DYZB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYZB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYZB/Pods-DYZB.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +223,7 @@
 		9F5F6CF01F6A833D0057C2AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9FF930601F738F9F00E9F948 /* CycleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				9F5F6CFB1F6A8A490057C2AA /* UIBarButtonItem_Extension.swift in Sources */,
 				9FA58D6E1F70ACD600442D8A /* CollectionHeaderView.swift in Sources */,
 				9F306AB71F66679C00E67CF6 /* AppDelegate.swift in Sources */,
+				9FF930611F738F9F00E9F948 /* CycleModel.swift in Sources */,
 				9F35BC701F71270D0064E62B /* AnchorGroup.swift in Sources */,
 				9F826B651F6FC25900F92817 /* RecommendViewController.swift in Sources */,
 				9F5F6CFD1F6B725C0057C2AA /* PageTitleView.swift in Sources */,

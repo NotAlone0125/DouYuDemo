@@ -13,11 +13,13 @@ import Foundation
  1.颜值、王者荣耀、手游休闲：https://apiv2.douyucdn.cn/live/home/custom?client_sys=ios
  2.最热：https://capi.douyucdn.cn/api/v1/getbigDataRoom?client_sys=ios 
  3.其他：https://capi.douyucdn.cn/api/v1/getHotCate
+ 4.无限轮播：http://www.douyutv.com/api/v1/slide/6
  */
 
 private let prettyUrl = "https://apiv2.douyucdn.cn/live/home/custom?client_sys=ios"
 private let otherUrl = "https://capi.douyucdn.cn/api/v1/getHotCate"
 private let hotUrl = "https://capi.douyucdn.cn/api/v1/getbigDataRoom?client_sys=ios"
+private let cycleUrl = "https://capi.douyucdn.cn/api/v1/slide/6?"
 
 class RecommendViewModel {
     
@@ -26,10 +28,13 @@ class RecommendViewModel {
     //缓存前两组数据
     fileprivate lazy var hotGroup:AnchorGroup = AnchorGroup()
     fileprivate lazy var prettyGroups:[AnchorGroup] = [AnchorGroup]()
+    
+    lazy var cycleModels:[CycleModel] = [CycleModel]()
 }
 
 //MARK:loadData
 extension RecommendViewModel{
+    //请求推荐数据
     func loadData(finishCallback:@escaping () -> ()) {
         
         //利用dispath来让请求到的数据排序
@@ -94,6 +99,22 @@ extension RecommendViewModel{
             finishCallback()
         }
     }
+
+    //请求无限轮播的数据
+    func requestCycleData(finisnCallback:@escaping () -> ()){
+        NetworkTools.requestData(type: .Get, url: cycleUrl, parameters: ["version":"2.542"]) { (returnResult) in
+            guard let resultDic = returnResult as? [String:NSObject] else {return}
+            
+            guard let dataArray = resultDic["data"] as? [[String:NSObject]] else {return}
+            
+            for dict in dataArray{
+                self.cycleModels.append(CycleModel.init(dict: dict))
+            }
+            
+            finisnCallback()
+            
+        }
+    }
 }
 
 extension RecommendViewModel{
@@ -104,7 +125,7 @@ extension RecommendViewModel{
         
         //2.根据data该key，获取数据
         guard let dataArray = resultDic["data"] as? [[String : NSObject]] else {return nil}
-        
+        //
         return dataArray
     }
 }

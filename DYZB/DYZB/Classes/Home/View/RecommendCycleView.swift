@@ -13,6 +13,17 @@ private let kCollectionCellID = "collectionCellID"
 
 class RecommendCycleView: UIView {
     
+    var cycleModels:[CycleModel]?{
+        didSet{
+            guard let cycleModels = cycleModels else {
+                return
+            }
+            collectionView.reloadData()
+            
+            pageControl.numberOfPages = cycleModels.count
+        }
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var pageControl: UIPageControl!
@@ -45,7 +56,7 @@ extension RecommendCycleView{
 
 extension RecommendCycleView:UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return cycleModels?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

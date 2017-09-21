@@ -96,15 +96,14 @@ extension RecommendViewController{
 extension RecommendViewController{
     fileprivate func loadData(){
         
+        //请求推荐数据
         recommendVM.loadData {
-            for smallGruop in self.recommendVM.anchorGroups{
-                for anchors in smallGruop.anchors{
-                    print(anchors.nickname)
-                }
-                print("\(smallGruop.cateModel.cate2_name)+++++++++")
-            }
-            
             self.collectionView.reloadData()
+        }
+        
+        //请求轮播数据
+        recommendVM.requestCycleData {
+            self.cycleView.cycleModels = self.recommendVM.cycleModels
         }
     }
 }

@@ -21,9 +21,7 @@ class AnchorCateInfo: NSObject {
     override init() {}
     
     init(dict:[String:NSObject]){
-        
-        print(dict)
-        
+
         super.init()
         
         setValuesForKeys(dict)
